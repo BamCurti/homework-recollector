@@ -9,6 +9,7 @@ if __name__ == '__main__':
     homework = get_homework()
     
     for h in homework:
-        on_notion = search_homework(h['name'])
+        on_notion = search_homework(h['id'])
         if not on_notion:
-            post_homework(h)
+            response = post_homework(h)
+            printf(response)

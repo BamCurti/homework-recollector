@@ -37,7 +37,7 @@ def get_uploaded_homework() -> Dict:
         
     return ans
 
-def search_homework(title: str) -> bool:
+def search_homework(id: str) -> bool:
     """This function returns a true value if the Notion API finds a page with the same name.
 
     Args:
@@ -49,11 +49,10 @@ def search_homework(title: str) -> bool:
     secrets = read_secrets("notion/secrets.json")
     url = "https://api.notion.com/v1/search"
     headers = secrets['headers']
-    data = {'query': str(title)}
+    data = {'query': id}
     
     request = requests.post(url=url, headers=headers, json=data).json()
     
-    printf(request['results'])    
     return len(request['results']) != 0   
 
 def format_page(h: Dict) -> Dict:
@@ -124,7 +123,7 @@ def post_homework(h: Dict) -> None:
     headers = secrets['headers']
     
     request = requests.post(url=url, headers=headers, json=format_page(h))
-    printf(request.json())
+    return request.json()
     
 if __name__ == '__main__':    
     test = {
