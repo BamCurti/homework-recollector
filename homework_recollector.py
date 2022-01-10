@@ -5,7 +5,7 @@ from notion.manager import search_homework, post_homework
 
 printf = lambda h: print(dumps(h, indent=4))
 
-if __name__ == '__main__':
+def fetch_homework() ->bool:
     homework = get_homework()
     
     for h in homework:
@@ -13,3 +13,7 @@ if __name__ == '__main__':
         if not on_notion:
             response = post_homework(h)
             printf(response)
+            return True    
+
+if __name__ == '__main__':
+    pass

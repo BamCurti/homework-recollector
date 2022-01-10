@@ -49,7 +49,7 @@ def search_homework(id: str) -> bool:
     secrets = read_secrets("notion/secrets.json")
     url = "https://api.notion.com/v1/search"
     headers = secrets['headers']
-    data = {'query': id}
+    data = {'query': str(id)}
     
     request = requests.post(url=url, headers=headers, json=data).json()
     
