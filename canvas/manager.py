@@ -46,7 +46,7 @@ def get_active_homework(id: int) -> List[Dict]:
     """
     secrets = read_secrets('canvas/secrets.json')
     headers = secrets['headers']
-    params = {'bucket': ['overdue']}
+    params = {'bucket': ['unsubmitted', 'ungraded']}
     url = f"https://canvas.instructure.com/api/v1/courses/{id}/assignments"
         
     r = requests.get(

@@ -134,10 +134,3 @@ if __name__ == '__main__':
         "name": "TEST 1"      
     }
     post_homework(test)
-    
-    
-    #homework = get_uploaded_homework()
-    
-    
-    #for h in homework:
-    #    printf(homework[h])
